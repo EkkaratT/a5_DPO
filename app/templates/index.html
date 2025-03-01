@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Generator</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #4A90E2;
+            text-align: center;
+        }
+        .response-card {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .loading-spinner {
+            display: none;
+            margin: 0 auto;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        textarea {
+            border-radius: 5px;
+            font-size: 14px;
+            resize: vertical;
+        }
+        .response-text {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>AI Text Generation with GPT-2</h1>
+        <form id="inputForm" method="POST" action="/generate">
+            <div class="form-group">
+                <label for="user_input">Enter your prompt:</label>
+                <textarea class="form-control" id="user_input" name="user_input" rows="4" placeholder="Ask me something..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Generate Response</button>
+        </form>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading-spinner">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Loading_icon.gif" alt="loading">
+        </div>
+
+        <!-- Response Section -->
+        <div id="responseCard" class="response-card" style="display: none;">
+            <!-- <h5><strong>Your Prompt:</strong></h5>
+            <p id="userPrompt" class="response-text"></p> -->
+            <h5><strong>Model's Response:</strong></h5>
+            <p id="modelResponse" class="response-text"></p>
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission via AJAX
+        $("#submitBtn").click(function(event) {
+            event.preventDefault();  // Prevent form submission
+
+            var userInput = $("#user_input").val();
+            if (userInput.trim() === "") {
+                alert("Please enter some text.");
+                return;
+            }
+
+            // Show loading spinner while waiting for the response
+            $("#loadingSpinner").show();
+            $("#responseCard").hide();
+
+            // Send user input to backend and get model's response
+            $.post("/generate", { user_input: userInput }, function(data) {
+                // Hide the loading spinner and show the response
+                $("#loadingSpinner").hide();
+                $("#responseCard").show();
+                $("#userPrompt").text(data.input);
+                $("#modelResponse").text(data.response);
+            });
+        });
+    </script>
+
+</body>
+</html>
