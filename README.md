@@ -1,4 +1,5 @@
 # a5_DPO
+
 # Fine-Tuning GPT-2 with Direct Preference Optimization (DPO)
 
 🚀 A project for training a preference-optimized GPT-2 model using Hugging Face’s `DPOTrainer`, uploading it to the Hugging Face Hub, and deploying a web application.
@@ -97,3 +98,23 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 # Save the model and tokenizer
 model.save_pretrained("./test")
 tokenizer.save_pretrained("./test")
+```
+2️⃣ Push to Hugging Face Hub
+```python
+
+# Define repo name (update with your Hugging Face username)
+hf_repo_name = "EkkaratT/a5_DPO_model"
+
+# Load model and tokenizer
+model = AutoModelForCausalLM.from_pretrained("./test")
+tokenizer = AutoTokenizer.from_pretrained("./test")
+
+# Push to Hugging Face
+model.push_to_hub(hf_repo_name)
+tokenizer.push_to_hub(hf_repo_name)
+
+print(f"Model pushed to Hugging Face Hub: https://huggingface.co/{hf_repo_name}")
+```
+
+✅ Hugging Face Model Link: [EkkaratT/a5_DPO_model](https://huggingface.co/EkkaratT/a5_DPO_model)
+
