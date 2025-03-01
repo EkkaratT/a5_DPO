@@ -6,6 +6,7 @@
 
 📌 **Model on Hugging Face**: [EkkaratT/a5_DPO_model](https://huggingface.co/EkkaratT/a5_DPO_model)
 
+
 ---
 
 ## 📌 Task 1: Finding a Suitable Dataset (0.5 Points)
@@ -13,7 +14,7 @@
 ### 📍 Selected Dataset
 For training the model, I selected the **UltraFeedback-Binarized Preferences Cleaned Dataset** from Hugging Face.
 
-👉 **Dataset Link**: [argilla/ultrafeedback-binarized-preferences-cleaned](https://huggingface.co/datasets/argilla/ultrafeedback-binarized-preferences-cleaned)
+ **Dataset Link**: [argilla/ultrafeedback-binarized-preferences-cleaned](https://huggingface.co/datasets/argilla/ultrafeedback-binarized-preferences-cleaned)
 
 ### 📍 Suitable Dataset
 ✅ **Human Preference Rankings** – Contains human-annotated preference data, making it suitable for **preference-based** training.  
@@ -28,6 +29,7 @@ To prepare the dataset, I:
 
 📌 Dataset Preprocessing Code:
 from datasets import load_dataset
+
 ```python
 # Load dataset
 dpo_dataset = load_dataset("argilla/ultrafeedback-binarized-preferences-cleaned")
@@ -67,6 +69,7 @@ For training, I adjusted hyperparameters to fit within my **system limitations**
 
 ### 📍 Training Performance
 📌 **Final Training Output:**  
+
 ```python
 TrainOutput(
     global_step=200,
@@ -94,6 +97,7 @@ TrainOutput(
 ### 📍 Saving & Uploading the Model
 
 1️⃣ **Save the fine-tuned model locally**  
+
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -101,6 +105,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 model.save_pretrained("./test")
 tokenizer.save_pretrained("./test")
 ```
+
 2️⃣ Push to Hugging Face Hub
 ```python
 
@@ -119,12 +124,12 @@ print(f"Model pushed to Hugging Face Hub: https://huggingface.co/{hf_repo_name}"
 ```
 
 ✅ Hugging Face Model Link: [EkkaratT/a5_DPO_model](https://huggingface.co/EkkaratT/a5_DPO_model)
-
+ 
 ## Task 4: Web Application Development (1 Point)
 ### Web Application Overview
 A simple web application was developed to demonstrate the capabilities of the fine-tuned model.
 
-###Features:
+### Features:
 Users can enter a text prompt.
 The model generates a response based on the input.
 The web app provides a user-friendly interface for interaction.
