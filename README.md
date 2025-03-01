@@ -130,9 +130,9 @@ print(f"Model pushed to Hugging Face Hub: https://huggingface.co/{hf_repo_name}"
 A simple web application was developed to demonstrate the capabilities of the fine-tuned model.
 
 ### Features:
-Users can enter a text prompt.
-The model generates a response based on the input.
-The web app provides a user-friendly interface for interaction.
+- Users can enter a text prompt.
+- The model generates a response based on the input.
+- The web app provides a user-friendly interface for interaction.
 
 Web Application Screenshot
 ![1](https://github.com/user-attachments/assets/af77b400-2d64-4c14-ae93-b086ee9cf31e)
