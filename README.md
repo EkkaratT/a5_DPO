@@ -85,6 +85,8 @@ TrainOutput(
 - ✅ **Training Time**: `74.5 seconds`  
 - ✅ **Training Speed**: `21.46 samples/sec`  
 
+![5](https://github.com/user-attachments/assets/46e54b68-a043-4374-95f9-ce21eb146183)
+
 ---
 
 ## 📌 Task 3: Pushing the Model to Hugging Face Hub (0.5 Points)
@@ -117,4 +119,21 @@ print(f"Model pushed to Hugging Face Hub: https://huggingface.co/{hf_repo_name}"
 ```
 
 ✅ Hugging Face Model Link: [EkkaratT/a5_DPO_model](https://huggingface.co/EkkaratT/a5_DPO_model)
+
+## Task 4: Web Application Development (1 Point)
+### Web Application Overview
+A simple web application was developed to demonstrate the capabilities of the fine-tuned model.
+
+###Features:
+Users can enter a text prompt.
+The model generates a response based on the input.
+The web app provides a user-friendly interface for interaction.
+
+Web Application Screenshot
+![1](https://github.com/user-attachments/assets/af77b400-2d64-4c14-ae93-b086ee9cf31e)
+![2](https://github.com/user-attachments/assets/535ec5d0-279f-43a6-b268-9eafbcd99404)
+![3](https://github.com/user-attachments/assets/3cdf8c52-41c2-46c1-8625-bbddf18879f5)
+![4](https://github.com/user-attachments/assets/c5bebe32-befd-4d72-af15-babdc7628ec3)
+
+
 
