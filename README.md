@@ -27,7 +27,7 @@ To prepare the dataset, I:
 
 📌 Dataset Preprocessing Code:
 from datasets import load_dataset
-
+```python
 # Load dataset
 dpo_dataset = load_dataset("argilla/ultrafeedback-binarized-preferences-cleaned")
 
@@ -36,6 +36,7 @@ dpo_dataset = dpo_dataset['train'].select_columns(['prompt', 'chosen', 'rejected
 
 # Print example
 print(dpo_dataset[0])
+```
 
 ---
 
@@ -65,7 +66,7 @@ For training, I adjusted hyperparameters to fit within my **system limitations**
 
 ### 📍 Training Performance
 📌 **Final Training Output:**  
-
+```python
 TrainOutput(
     global_step=200,
     training_loss=1.6350819182395935,
@@ -77,6 +78,7 @@ TrainOutput(
         'epoch': 1.6
     }
 )
+```
 
 - ✅ **Final Training Loss**: `1.635`  
 - ✅ **Training Time**: `74.5 seconds`  
